@@ -1,0 +1,53 @@
+<ion-view view-title="Register">
+<ion-content>
+	<ion-item>
+
+	<div class="row">
+	<div class="col col-80">
+	Select the no of participants
+	</div>
+
+	<div class="col">
+	{{$scope.person_count}}
+	<select ng-model="person_count.value" ng-options="option.value as option.display for option in options">
+  	</select>
+	</div>
+
+	</div>
+	</ion-item>
+	<div class="list card" ng-repeat="item in jsonObj track by item.count" >
+
+  <!-- <div class="item" >
+    <form> -->
+            <ion-list>
+            	<label class="item item-divider">
+            		<span class="input-label">Participant {{$index+1}}</span>
+  				</label>
+                <label class="item item-input">
+                    <span class="input-label">DDR Cell No</span>
+                    <input type="text" ng-model="item.DDR_cell_No" placeholder="" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">DDR Cell Name</span>
+                    <input type="text" ng-model="item.DDR_cell_Name" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email id</span>
+                    <input type="text" ng-model="item.Email_id" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Team Name</span>
+                    <input type="text" ng-model="item.Team_Name" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Mobile No</span>
+                    <input type="text" ng-model="item.Mobile_No" placeholder="">
+                </label>
+            </ion-list>
+<!-- 	</form>
+ -->  </div>
+ <div class="button button-positive submitbutton" align="center" ng-click="register_submit()">Submit</div>
+
+ </ion-content>
+  
+</ion-view>

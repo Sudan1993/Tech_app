@@ -1,0 +1,28 @@
+<ion-view>
+  <ion-header-bar>
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+          <button class="button button-clear" ng-click="closeLogin()">Close</button>
+     </div>
+      </ion-header-bar>
+
+     <ion-content padding="true" scroll="false" class="has-header">
+        <form>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label" >TPXiD</span>
+                    <input type="text" placeholder="" ng-model='loginData.tpxid'>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">EMPiD</span>
+                    <input type="number" placeholder="" ng-model='loginData.empid'>
+                </label>
+                <!-- <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="text" placeholder="">
+                </label> -->
+            </ion-list>
+            <button class="button button-stable button-block " ng-click='doLogin()' >Sign up</button>
+        </form>
+  </ion-content>
+</ion-view>
