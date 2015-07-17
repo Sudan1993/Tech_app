@@ -24,15 +24,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   $stateProvider
 
 
-  .state('app', {
-    url: "/app",
+  .state('menu', {
+    url: "/menu",
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
 
-  .state('app.hack_register', {
-    url: "/app/hackthon_register",
+  .state('menu.hack_register', {
+    url: "/menu/hackthon_register",
     views: {
       'menuContent': {
         templateUrl: "templates/hack_register.html",
@@ -41,51 +41,52 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('menu.hackathon', {
+    url: "/hackathon",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html",
+        templateUrl: "templates/hackathon.html",
          controller: 'hackthonCtrl'
       }
     }
   })
-
-  .state('app.browse', {
-    url: "/browse",
+ .state('menu.home', {
+    url: "/home",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/home.html",
+         controller: 'AppCtrl'
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
+  .state('menu.stalls', {
+    url: "/stalls",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/stalls.html"
+      }
+    }
+  })
+    .state('menu.agenda', {
+      url: "/agenda",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/agenda.html",
+          controller: 'AgendaCtrl'
         }
       }
     })
-  .state('app.login', {
-    url: "/search/login",
+    
+  .state('menu.login', {
+    url: "/login",
     views: {
-        
+    'menuContent' :{       
         templateUrl: "templates/login.html",
         controller: 'AppCtrl'
-      
-    }
-  })
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
       }
     }
   });
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/menu/home');
 });
