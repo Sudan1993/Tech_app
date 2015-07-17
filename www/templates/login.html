@@ -1,28 +1,23 @@
-<ion-view>
-  <ion-header-bar>
-    <h1 class="title">Register</h1>
-    <div class="buttons">
-          <button class="button button-clear" ng-click="closeLogin()">Close</button>
-     </div>
-      </ion-header-bar>
-
+<ion-view view-title="Register">
+ <ion-nav-buttons side="left">
+       <button class="button button-icon ion-navicon " menu-toggle="left" style="margin-left:-10px;" id="lhm_button">
+        </button>
+        <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
+            <i class="icon_home ion-home"></i>
+        </button>
+    </ion-nav-buttons>
      <ion-content padding="true" scroll="false" class="has-header">
-        <form>
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label" >TPXiD</span>
-                    <input type="text" placeholder="" ng-model='loginData.tpxid'>
+                    <input type="text" placeholder="" ng-model=''>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">EMPiD</span>
-                    <input type="number" placeholder="" ng-model='loginData.empid'>
+                    <input type="number" placeholder="" ng-model=''>
                 </label>
-                <!-- <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
-                </label> -->
             </ion-list>
-            <button class="button button-stable button-block " ng-click='doLogin()' >Sign up</button>
-        </form>
+            <button class="button button-stable button-block " ng-click='' >Sign up</button>
+             <button class="button button-stable button-block " ng-click='' >Cancel</button>
   </ion-content>
 </ion-view>
