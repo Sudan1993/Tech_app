@@ -32,12 +32,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('menu.hack_register', {
-    url: "/menu/hackthon_register",
+    url: "/hackthon_register",
     views: {
-      'menuContent': {
+      'menuContent':{
         templateUrl: "templates/hack_register.html",
          controller: 'hackthonCtrl'
-      }
+       }
     }
   })
 
