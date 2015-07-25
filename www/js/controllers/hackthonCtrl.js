@@ -1,26 +1,5 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers.hackthonCtrl', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$state,$rootScope) {
-  
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  $scope.$on('$ionicView.enter', function(e) {
-  });
-     $rootScope.goToHomeScreen = function() {
-                $state.go('menu.home');
-            };
-
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Register', id: 1 },
-    { title: 'Notifications', id: 2 },
-    { title: 'Feedback', id: 3 }
-  ];
-})
 .controller('hackthonCtrl',function($scope,$state){
   //declaring the max no of participants 
   $scope.options = 
@@ -78,5 +57,4 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('AgendaCtrl', function($scope, $stateParams) {
-});
+
