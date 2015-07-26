@@ -1,16 +1,39 @@
 angular.module('starter.controllers.AppCtrl', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$state,$rootScope) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$state,$rootScope,PopUpService) {
+  	
+  	$scope.user={};
   
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  $scope.$on('$ionicView.enter', function(e) {
-  });
-     $rootScope.goToHomeScreen = function() {
-                $state.go('menu.home');
-            };
+	$rootScope.goToHomeScreen = function() {
+        $state.go('menu.home');
+    };
+
+  	$scope.submit=function() {
+   		
+  		if(!$scope.user.tpxid|| !$scope.user.empid) {
+  			PopUpService.showPopup('Alert','Please enter TPXiD or EMPid');
+  		}
+
+  		else if($scope.user.tpxid=='vm17' && $scope.user.empid=='22906590') {
+  			window.localStorage.setItem('username','sudarshan');
+  			$rootScope.username=window.localStorage.getItem('username');
+  			$state.go('menu.home');
+  		}
+  		else {
+  			PopUpService.showPopup('Login Failed','TPXiD/EMPid not verified');
+  		}
+
+  	}
+
+  	//on quit and relaunch fetch the username if already logged in
+  	if(window.localStorage.getItem('username')!==null) {
+  		$rootScope.username=window.localStorage.getItem('username');
+  	}
+
+  	$scope.cancel=function() {
+  		$scope.user.tpxid="";
+  		$scope.user.empid="";
+  	}
 
 })
 

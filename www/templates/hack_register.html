@@ -6,53 +6,59 @@
             <i class="icon_home ion-home"></i>
         </button> -->
     </ion-nav-buttons>
-<ion-content>
-	<ion-item>
+<ion-content overflow-scroll="true">
 
-	<div class="row">
-	<div class="col col-80">
-	Select the no of participants
-	</div>
+<!--     <ion-item>
+ -->    	<div class="list card">
 
-	<div class="col">
-	{{$scope.person_count}}
-	<select ng-model="person_count.value" ng-options="option.value as option.display for option in options">
-  	</select>
-	</div>
+            <label class="item item-divider">
+                <span class="input-label">Hackathon Registration</span>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">DDR CellNo</span>
+                <input type="number" ng-model="static_fields.DDR_cell_No" placeholder="" required>
+            </label>
 
-	</div>
-	</ion-item>
-	<div class="list card" ng-repeat="item in jsonObj track by item.count" >
+            <label class="item item-input">
+                <span class="input-label">DDR CellName</span>
+                <input type="text" ng-model="static_fields.DDR_cell_Name" placeholder="">
+            </label>
 
-  <!-- <div class="item" >
-    <form> -->
-            <ion-list>
-            	<label class="item item-divider">
-            		<span class="input-label">Participant {{$index+1}}</span>
-  				</label>
-                <label class="item item-input">
-                    <span class="input-label">DDR Cell No</span>
-                    <input type="text" ng-model="item.DDR_cell_No" placeholder="" required>
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">DDR Cell Name</span>
-                    <input type="text" ng-model="item.DDR_cell_Name" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Email id</span>
-                    <input type="text" ng-model="item.Email_id" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Team Name</span>
-                    <input type="text" ng-model="item.Team_Name" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Mobile No</span>
-                    <input type="text" ng-model="item.Mobile_No" placeholder="">
-                </label>
-            </ion-list>
-<!-- 	</form>
- -->  </div>
+            <label class="item item-input">
+                <span class="input-label">Team Name</span>
+                <input type="text" ng-model="static_fields.Team_Name" placeholder="">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Team Size</span>
+                {{$scope.person_count}}
+                <select ng-model="person_count.value" ng-options="option.value as option.display for option in options">
+                </select>
+            </label>
+    	</div>
+<!--     </ion-item>
+ -->	<div class="list card" ng-repeat="item in jsonObj track by item.count" >
+        <ion-list>
+        	<label class="item item-divider">
+        		<span class="input-label">Participant {{$index+1}}</span>
+    		</label>
+            
+            <label class="item item-input">
+                <span class="input-label">TPXiD</span>
+                <input type="text" ng-model="item.Tpxid" placeholder="">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">EMPiD</span>
+                <input type="number" ng-model="item.Empid" placeholder="">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Mobile No</span>
+                <input type="number" ng-model="item.Mobile_No" placeholder="">
+            </label>
+        </ion-list>
+  </div>
  <div class="button button-positive submitbutton" align="center" ng-click="register_submit()">Submit</div>
 
  </ion-content>
