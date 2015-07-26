@@ -1,23 +1,22 @@
 <ion-view view-title="Register">
- <ion-nav-buttons side="left">
-       <button class="button button-icon ion-navicon " menu-toggle="left" style="margin-left:-10px;" id="lhm_button">
-        </button>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-navicon " menu-toggle="left" style="margin-left:-10px;" id="lhm_button"></button>
         <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
             <i class="icon_home ion-home"></i>
         </button>
     </ion-nav-buttons>
-     <ion-content padding="true" scroll="false" class="has-header">
-            <ion-list>
-                <label class="item item-input">
-                    <span class="input-label" >TPXiD</span>
-                    <input type="text" placeholder="" ng-model=''>
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">EMPiD</span>
-                    <input type="number" placeholder="" ng-model=''>
-                </label>
-            </ion-list>
-            <button class="button button-stable button-block " ng-click='' >Sign up</button>
-             <button class="button button-stable button-block " ng-click='' >Cancel</button>
-  </ion-content>
+    <ion-content padding="true" scroll="false" class="has-header">
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label" >TPXiD</span>
+                <input type="text" placeholder="" ng-model='user.tpxid'>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">EMPiD</span>
+                <input type="number" placeholder="" ng-model='user.empid'>
+            </label>
+        </ion-list>
+    <button class="button button-stable button-block " ng-click='submit()' >Sign up</button>
+    <button class="button button-stable button-block " ng-click='cancel()' >Cancel</button>
+    </ion-content>
 </ion-view>
