@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic', 'starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup'])
+angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
