@@ -1,6 +1,11 @@
 angular.module('starter.controllers.hackthonCtrl', [])
 
-.controller('hackthonCtrl',function($scope,$state,PopUpService){
+.controller('hackthonCtrl',function($scope,$state,PopUpService,ionicMaterialInk,ionicMaterialMotion,$timeout){
+
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+      ionicMaterialMotion.ripple();
+  },0);
 
   if(window.localStorage.getItem('username')===null) {
     PopUpService.showPopup('Alert','Please login yourself');
