@@ -44,6 +44,7 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
 
   .state('menu.hackathon', {
     url: "/hackathon",
+    cache:false,
     views: {
       'menuContent': {
         templateUrl: "templates/hackathon.html",
