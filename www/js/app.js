@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
+angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.MapCntrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -75,6 +75,15 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
         'menuContent': {
           templateUrl: "templates/agenda.html",
           controller: 'AgendaCtrl'
+        }
+      }
+    })
+    .state('menu.location', {
+      url: "/location",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/maps.html",
+          controller: 'MapCntrl'
         }
       }
     })
