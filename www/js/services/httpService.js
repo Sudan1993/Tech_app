@@ -68,7 +68,7 @@ angular.module('starter.services.httpService', [])
             showAlert();
           }
           else {
-	            self.showIndicator();
+	            self.showIndicator(); 
 	            $http.defaults.headers.post["Content-Type"]="application/json";
 	            var res = $http.get('http://techday.ocsethsc.net:8181/'+appendWithUrl);  
 
