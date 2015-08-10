@@ -1,12 +1,65 @@
-<ion-view view-title="Register">
- <ion-nav-buttons side="left">
-<!--        <button class="button button-icon ion-navicon " menu-toggle="left" style="margin-left:-10px;" id="lhm_button">
-        </button> -->
-       <!--  <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
-            <i class="icon_home ion-home"></i>
-        </button> -->
-    </ion-nav-buttons>
-<ion-content overflow-scroll="true">
+<ion-view view-title="{{title}}">
+    <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear" ng-click="enableEdit()" data-tap-disabled="true">
+        <i class="icon ion-edit"></i>
+    </button>
+</ion-nav-buttons>
+     <ion-content class="has-header" overflow-scroll="true" ng-if="registered">
+        <div class="card">
+
+            <label class="item item-divider" style="color:black;font-size:16px">
+               {{hackTeam.teamName}}
+            </label>
+            <label class="item item-input">
+                <span class="input-label">DDR CellNo</span>
+                <input type="number" value={{hackTeam.cellNo}} readonly style="background-color:white">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">DDR CellName</span>
+                <input type="text" value={{hackTeam.cellName}} readonly style="background-color:white">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Team Id</span>
+                <input type="text" value={{hackTeam.teamId}} readonly style="background-color:white" >
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Team Size</span>
+             <input type="text" value={{hackTeam.size}} readonly style="background-color:white">
+
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Owner Id</span>
+             <input type="text" value={{hackTeam.ownerId}} readonly style="background-color:white">
+
+            </label >
+                    
+         <label class="item item-divider " style="color:black;font-size:16px">
+              Team Members
+            </label>
+            <div class="list card" ng-repeat="member in hackTeam.members">
+               <label class="item item-input">
+                <span class="input-label">Tpx Id</span>
+             <input type="text" value={{member.tpxid}} readonly style="background-color:white">
+
+            </label>
+               <label class="item item-input">
+                <span class="input-label">Employee Id</span>
+             <input type="text" value={{member.empId}} readonly style="background-color:white">
+
+            </label>
+               <label class="item item-input">
+                <span class="input-label">Mobile</span>
+             <input type="text" value={{member.mobile}} readonly style="background-color:white">
+
+            </label>
+        </div>
+                </div>
+
+ </ion-content>
+<ion-content class="has-header" overflow-scroll="true" ng-if="!registered">
 
 <!--     <ion-item>
 
@@ -64,5 +117,6 @@
  <div class="button button-positive submitbutton" align="center" ng-click="register_submit()">Submit</div>
 <!--/div-->
  </ion-content>
+
   
 </ion-view>

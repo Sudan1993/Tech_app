@@ -6,11 +6,80 @@ angular.module('starter.controllers.hackthonCtrl', [])
     ionicMaterialInk.displayEffect();
       ionicMaterialMotion.ripple();
   },0);
+  
+    // $scope.registered=null; // Use this to toggle between Register/Details form
+    // $scope.hackTeam=[];
 
-  if(window.localStorage.getItem('username')===null) {
-    PopUpService.showPopup('Alert','Please login yourself');
-    $state.go('menu.login');
-  }
+  // if(window.localStorage.getItem('username')===null) {
+  //   PopUpService.showPopup('Alert','Please login yourself');
+  //   $state.go('menu.login');
+  // }
+   // else
+   // {
+   //  $scope.hackCall();
+   // }
+   //$scope.edit=null;
+   //$scope.owner=null;
+   $scope.enableEdit=function(){
+    $scope.edit=true;
+   }
+  $scope.hackCall=function(){
+   
+          var appendWithUrl="EventRest/api/hackathon/verify/" + window.localStorage.getItem('username') ;
+          httpService.getCall(appendWithUrl).then(function(respData){
+          var data=respData.data[0];
+          // if(owner)
+          //   $scope.owner=true;
+          // else
+          //   $scope.owner=false;
+          if(data.status==200) {
+                $scope.registered=true;
+                $scope.hackTeam=data;
+          }
+          else if(data.status==201) {
+                $scope.registered=false;
+          }
+          else {
+            PopUpService.showPopup('Alert','Connectoin timed out');
+          }
+        }) 
+ 
+
+  };
+ 
+// $scope.registered=true;
+ $scope.hackTeam={
+    "cellName": "Finance IT",
+    "cellNo": 25,
+    "teamName": "MassHack",
+    "size": 3,
+    "teamId": 26,
+    "ownerId": 5844,
+    "status": 200,
+    "members": [
+        {
+            "tpxid": "tz29",
+            "empId": 22905904,
+            "mobile": 9986157779
+        },
+        {
+            "tpxid": "wx83",
+            "empId": 22905900,
+            "mobile": 9986155679
+        },
+        {
+            "tpxid": "wc87",
+            "empId": 22907141,
+            "mobile": 9986155676
+        }
+    ]
+};
+
+  if($scope.registered==true)
+    $scope.title="Team Details";
+  else
+    $scope.title="Register";
+
 
   $scope.static_fields={};
   //declaring the max no of participants 

@@ -9,13 +9,12 @@
  
 }
 
-.icon_home{
-    font-size: 24px;
-}
-
 .bar.bar-custom {
     border-color: #0c63ee;
     background-color: #2a9fdd;
     background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
     color: #fff; 
 }
+
+
+
