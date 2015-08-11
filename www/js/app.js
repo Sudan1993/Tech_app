@@ -42,6 +42,24 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
     }
   })
 
+    .state('menu.notifications', {
+    url: "/notifications",
+    views: {
+      'menuContent':{
+        templateUrl: "templates/notifications.html",
+         controller: 'hackthonCtrl'
+       }
+    }
+  })
+ .state('menu.feedback', {
+    url: "/feedback",
+    views: {
+      'menuContent':{
+        templateUrl: "templates/feedback.html",
+         controller: 'hackthonCtrl'
+       }
+    }
+  })
   .state('menu.hackathon', {
     url: "/hackathon",
     cache:false,
