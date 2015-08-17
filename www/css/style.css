@@ -19,3 +19,14 @@
     background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
     color: #fff; 
 }
+.video a {
+  position: absolute;
+  display: block;
+  background: url(http://www.slatecube.com/images/play-btn.png);
+  height: 60px;
+  width: 60px;
+  top: 75px;
+  left: 680px;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+}

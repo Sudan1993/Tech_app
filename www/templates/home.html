@@ -1,10 +1,24 @@
 <ion-view view-title="Technology Day" hide-back-button="true">
 <ion-nav-buttons side="left">
-        <button class="button button-icon ion-navicon" menu-toggle="left" style="margin-left:-10px;margin-right:-20px" id="lhm_button">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" style="margin-left:-10px;margin-right:-20px" id="lhm_button">
         </button>
         
     </ion-nav-buttons>
 <ion-content class="animate-fade-slide-in">
+
+<div class="item card-item">
+<div class="card stable-bg ink ink-dark">
+<ion-slide-box ng-if='items' show-pager="true" auto-play='true' does-continue='true' pager-click='true'>
+  <ion-slide  ng-repeat="i in items"> 
+    <div  class="video">
+      <img class="full-image" style="height:200px"ng-src="{{i.image}}" />
+      <a href="https://www.youtube.com/embed/I0riVRmp6G0"></a>
+    </div>
+  </ion-slide>
+</ion-slide-box>
+</div>
+</div>
+
 <div class="item card-item">
 <div class="card stable-bg ink ink-dark">
   <div class="item item-text-wrap">
@@ -30,7 +44,7 @@
             <div class="card stable-bg ink ink-dark">
                 <div class="item item-text-wrap">
                     This is a basic Card which contains an item that has wrapping text.
-                    <!-- <span class="avatar" style="background-image: url('img/tyrion.jpg');"></span> -->
+                    <!-- <span class="avatar" style="background-image: url('img/tyrion.jpg');"></span>
                     <!-- <strong>Tyrion Lannister</strong> says "Perhaps that is the secret. It is not what we do, so much as why we do it." -->
                     <!-- <div class="card-footer text-right">
                         <i class="icon ion-chatbubble positive"></i> 2

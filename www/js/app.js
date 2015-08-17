@@ -8,9 +8,11 @@
 angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
 
 .run(function($ionicPlatform) {
+  
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+  //ionic.Platform.isFullScreen = true;
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -66,6 +68,31 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
     views: {
       'menuContent': {
         templateUrl: "templates/stalls.html"
+      }
+    }
+  })
+  .state('menu.notifications', {
+    url: "/notifications",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notifications.html"
+      }
+    }
+  })
+  .state('menu.help', {
+    url: "/help",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/help.html",
+        controller: 'AppCtrl'
+      }
+    }
+  })
+  .state('menu.feedback', {
+    url: "/feedback",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/feedback.html"
       }
     }
   })
