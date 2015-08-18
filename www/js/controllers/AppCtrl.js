@@ -9,10 +9,13 @@ angular.module('starter.controllers.AppCtrl', [])
             selector: '.animate-fade-slide-in .item'
         });
     }, 200);
-
+    
+    $timeout(function() {
+        //$scope.$parent.hideHeader();
+    }, 0);
     // Activate ink for controller
     ionicMaterialInk.displayEffect();
-
+    //$scope.$parent.clearFabs();
   
   
       $scope.slideHasChanged = function(index) {

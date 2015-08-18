@@ -23,7 +23,9 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+
+  $ionicConfigProvider.views.swipeBackEnabled(false);
   $stateProvider
 
 
