@@ -2,9 +2,6 @@
 
 
 
-
-
-
 .input-group {
     position: relative;
     padding-top: 20px;
@@ -57,11 +54,11 @@
 .input-group input:focus + label,
 .input-group input.active + label {
     transform: translateY(-30px);
--ms-transform:translateY(-30px); /* IE */
--moz-transform:translateY(-30px); /* Firefox */
--webkit-transform:translateY(-30px); /* Safari and Chrome */
--o-transform:translateY(-30px); /* Opera */
-}
+/*-ms-transform:translateY(-30px);  IE */
+/*-moz-transform:translateY(-30px); /* Firefox */
+  -webkit-transform:translateY(-30px); /* Safari and Chrome */
+/*-o-transform:translateY(-30px); /* Opera */
+*/}
 
 .btn {
     float: right;

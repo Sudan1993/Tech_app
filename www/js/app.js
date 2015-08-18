@@ -15,6 +15,7 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
   //ionic.Platform.isFullScreen = true;
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -90,11 +91,11 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
       }
     }
   })
-  .state('menu.feedback', {
-    url: "/feedback",
+  .state('menu.instructions', {
+    url: "/instructions",
     views: {
       'menuContent': {
-        templateUrl: "templates/feedback.html"
+        templateUrl: "templates/instructions.html"
       }
     }
   })

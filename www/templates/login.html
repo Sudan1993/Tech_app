@@ -9,15 +9,17 @@
     <ion-content padding="true" scroll="false" class="has-header">
 
     <div class="input-group">
-                <input type="text" id="first" class="m-input">
+                <input type="text" ng-model='user.tpxid' id="first" class="m-input">
                 <label for="first">Tpx Id</label>
         </div>
         <div class="input-group">
-                <input type="password" id="password" class="m-input">
+                <input type="password" ng-model='user.empid' id="password" class="m-input">
                 <label for="password">Employee id</label>
         </div>
         <div class="input-group">
-                <button class="btn" ng-click='submit()'>Submit</button>
+<!--                 <button class="btn" ng-click='cancel()' style="float:left">Reset</button>
+ -->
+                <button class="btn" ng-click='submit()' style="float:right">Submit</button>
         </div>
         <!--     <ion-list>
             <label class="item item-input">

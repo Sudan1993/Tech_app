@@ -11,7 +11,7 @@ angular.module('starter.controllers.hackthonCtrl', [])
     PopUpService.showPopup('Alert','Please login yourself');
     $state.go('menu.login');
   }
-
+  $scope.enableEdit="";
   $scope.goToHackPage = function() {
     httpService.getCall('EventRest/api/hackathon/verify/' + window.localStorage.getItem('tpxid')).then(function(respData){
 
@@ -35,6 +35,8 @@ angular.module('starter.controllers.hackthonCtrl', [])
           $rootScope.canEdit = false;
         }
         $rootScope.hackTeam = respData.data;
+      //  $scope.person_count={value:$rootScope.hackTeam.size};
+      //  $scope.person_count.value=$rootScope.hackTeam.size;
         $state.go('menu.hack_register');
       }
 
@@ -48,9 +50,8 @@ angular.module('starter.controllers.hackthonCtrl', [])
 
     var appendWithUrl = "EventRest/api/hackathon/update";
     //alert(JSON.stringify($scope.hackTeam));
-
+   // $scope.hackTeam.size=$scope.person_count.value;
     httpService.postCall( appendWithUrl , $scope.hackTeam ).then(function(respData){
-      alert(JSON.stringify(respData));
       if(respData.data.status == 200) {
         PopUpService.showPopup('Alert' , 'Updated successfully');
       }
@@ -62,13 +63,15 @@ angular.module('starter.controllers.hackthonCtrl', [])
       }
       else {
         PopUpService.showPopup('Alert','Connectoin timed out');
-      }    
+      } 
+                  $scope.enableEdit = false;
+   
     }) 
-  }
+  };
 
   $scope.enableEditFunc = function() {
     $scope.enableEdit = true;
-  }  
+  };  
 
   $scope.static_fields = {};
   //declaring the max no of participants 
@@ -89,10 +92,16 @@ angular.module('starter.controllers.hackthonCtrl', [])
     {
       display: "4",
       value: "4"
+    },
+    {
+      display: "5",
+      value: "5"
     }
   ];
 
   //By default select one
+  // alert($scope.enableEdit);
+  // if($scope.enableEdit!=true)
   $scope.person_count={ value:"1" };
   
   //watching person count variable
@@ -122,8 +131,12 @@ angular.module('starter.controllers.hackthonCtrl', [])
       var appendWithUrl = "EventRest/api/hackathon/save";
       var jsonToSend = {};
 
-      jsonToSend ["cellName"] = $scope.static_fields.DDR_cell_Name;
-      jsonToSend ["cellNo"] = $scope.static_fields.DDR_cell_No;
+     // jsonToSend ["cellName"] = $scope.static_fields.DDR_cell_Name;
+      jsonToSend ["cellName"] = "Dummy";
+
+      //jsonToSend ["cellNo"] = $scope.static_fields.DDR_cell_No;
+      jsonToSend ["cellNo"] = "123";
+      
       jsonToSend ["teamName"] = $scope.static_fields.Team_Name;
       jsonToSend ["size"] = $scope.jsonObj.length;
       jsonToSend ["ownerId"] = window.localStorage.getItem("ownerId");
