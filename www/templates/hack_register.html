@@ -1,122 +1,153 @@
-<ion-view view-title="{{title}}">
-    <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear" ng-click="enableEdit()" data-tap-disabled="true">
+<ion-view view-title={{title}}>
+ <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear" ng-if='canEdit == true' ng-click="enableEditFunc()" data-tap-disabled="true">
         <i class="icon ion-edit"></i>
     </button>
 </ion-nav-buttons>
-     <ion-content class="has-header" overflow-scroll="true" ng-if="registered">
-        <div class="card">
+<ion-content >
+    <div class='row row-center ' ng-if='enableEdit == true'>
+        <div class='col col-70 item item-divider'>You can edit now</div>
+        <div class="col" ><button class='button button-small button-dark' style="float:right" ng-click='delete_click()'>Delete</button></div>
+    </div>
+    <div class="card" ng-if='new_user == false'>
 
-            <label class="item item-divider" style="color:black;font-size:16px">
+            <div class="item item-divider" style="color:black;font-size:16px">
                {{hackTeam.teamName}}
-            </label>
-            <label class="item item-input">
+            </div>
+          <!--   <div class="item item-input">
                 <span class="input-label">DDR CellNo</span>
-                <input type="number" value={{hackTeam.cellNo}} readonly style="background-color:white">
-            </label>
+                <input type="number" value={{hackTeam.cellNo}} ng-model="hackTeam.cellNo" ng-readonly="!enableEdit" style="background-color:white">
+            </div>
 
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">DDR CellName</span>
-                <input type="text" value={{hackTeam.cellName}} readonly style="background-color:white">
-            </label>
+                <input type="text" value={{hackTeam.cellName}} ng-model="hackTeam.cellName" ng-readonly="!enableEdit" style="background-color:white">
+            </div> -->
 
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">Team Id</span>
-                <input type="text" value={{hackTeam.teamId}} readonly style="background-color:white" >
-            </label>
+                <input type="text" value={{hackTeam.teamId}} ng-model="hackTeam.teamId" ng-readonly="true" style="background-color:white" >
+            </div>
 
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">Team Size</span>
-             <input type="text" value={{hackTeam.size}} readonly style="background-color:white">
+             <input type="text" value={{hackTeam.size}} ng-model="hackTeam.size" ng-readonly="true" style="background-color:white">
 
-            </label>
-             <label class="item item-input">
-                <span class="input-label">Owner Id</span>
-             <input type="text" value={{hackTeam.ownerId}} readonly style="background-color:white">
-
-            </label >
-                    
-         <label class="item item-divider " style="color:black;font-size:16px">
-              Team Members
-            </label>
-            <div class="list card" ng-repeat="member in hackTeam.members">
-               <label class="item item-input">
-                <span class="input-label">Tpx Id</span>
-             <input type="text" value={{member.tpxid}} readonly style="background-color:white">
-
-            </label>
-               <label class="item item-input">
-                <span class="input-label">Employee Id</span>
-             <input type="text" value={{member.empId}} readonly style="background-color:white">
-
-            </label>
-               <label class="item item-input">
-                <span class="input-label">Mobile</span>
-             <input type="text" value={{member.mobile}} readonly style="background-color:white">
-
-            </label>
-        </div>
-                </div>
-
- </ion-content>
-<ion-content class="has-header" overflow-scroll="true" ng-if="!registered">
-
-<!--     <ion-item>
-
- -->    <!--div class="animate-ripple"-->
-     	<div class="list card ">
-
-            <label class="item item-divider ">
-                <span class="input-label">Hackathon Registration</span>
-            </label>
-            <label class="item item-input">
-                <span class="input-label">DDR CellNo</span>
-                <input type="number" ng-model="static_fields.DDR_cell_No" placeholder="" required>
-            </label>
-
-            <label class="item item-input">
-                <span class="input-label">DDR CellName</span>
-                <input type="text" ng-model="static_fields.DDR_cell_Name" placeholder="">
-            </label>
-
-            <label class="item item-input">
-                <span class="input-label">Team Name</span>
-                <input type="text" ng-model="static_fields.Team_Name" placeholder="">
-            </label>
-
-            <label class="item item-input">
+            </div>
+  <!--            <div class="item item-input" ng-if="enableEdit == true">
                 <span class="input-label">Team Size</span>
                 {{$scope.person_count}}
                 <select ng-model="person_count.value" ng-options="option.value as option.display for option in options">
                 </select>
-            </label>
+            </div> -->
+<!--              <div class="item item-input">
+                <span class="input-label">Owner Id</span>
+             <input type="text" value={{hackTeam.ownerId}} ng-model="hackTeam.ownerId" ng-readonly="!enableEdit" style="background-color:white">
+
+            </div > -->
+                    
+  <!--        <div class="item item-divider " style="color:black;font-size:16px">
+              Team Members
+            </div> -->
+             <div class='row row-center'>
+        <div class='col col-70 item item-divider' style="color:black;font-size:16px">Team Members</div>
+        <div class="col" ng-if="enableEdit" ><button class='button button-small button-dark' style="float:right" ng-click='add_click()' >Add</button></div>
+    </div>
+            <div class="list card" ng-repeat="member in hackTeam.members">
+
+     <div class="item item-divider">Member {{$index+1}}
+        <a ng-click="cancel_click($index)" class="item-icon-right" ng-if="enableEdit">
+            <i class="icon ion-ios-close-empty" style="color:#b2b2b2"></i>
+        </a>
+    </div>
+               <div class="item item-input">
+                <span class="input-label">Tpx Id</span>
+             <input type="text" value={{member.tpxid}} ng-model="member.tpxid" ng-readonly="!enableEdit" style="background-color:white">
+
+            </div>
+               <div class="item item-input">
+                <span class="input-label">Employee Id</span>
+             <input type="text" value={{member.empId}} ng-model="member.empId" ng-readonly="!enableEdit" style="background-color:white">
+
+            </div>
+               <div class="item item-input">
+                <span class="input-label">Mobile</span>
+             <input type="text" value={{member.mobile}} ng-model="member.mobile" ng-readonly="!enableEdit" style="background-color:white">
+
+            </div>
+<!--             <label class="item item-input item-floating-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">something </span>
+    <input type="text" placeholder="Last Name" value={{member.mobile}}>
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="Email">
+  </label> -->
+            </div>
+        <div ng-if='enableEdit == true' class="button button-positive submitbutton" align="center" ng-click="edit_submit()">Submit</div>
+
+    </div>
+
+
+
+    <div ng-if = 'new_user == true'>
+     	<div class="list card ">
+            <div class="item item-divider ">
+                <span class="input-label">Hackathon Registration</span>
+            </div>
+      <!--       <div class="item item-input">
+                <span class="input-label">DDR CellNo</span>
+                <input type="number" ng-model="static_fields.DDR_cell_No" placeholder="" required>
+            </div>
+
+            <div class="item item-input">
+                <span class="input-label">DDR CellName</span>
+                <input type="text" ng-model="static_fields.DDR_cell_Name" placeholder="">
+            </div> -->
+
+            <div class="item item-input">
+                <span class="input-label">Team Name</span>
+                <input type="text" ng-model="static_fields.Team_Name" placeholder="">
+            </div>
+
+            <div class="item item-input">
+                <span class="input-label">Team Size</span>
+                {{$scope.person_count}}
+                <select ng-model="person_count.value" ng-options="option.value as option.display for option in options">
+                </select>
+            </div>
     	</div>
-<!--     </ion-item>
- -->	<div class="list card" ng-repeat="item in jsonObj track by item.count" >
+
+    	<div class="list card" ng-repeat="item in jsonObj track by $index" >
         <ion-list>
-        	<label class="item item-divider">
+        	<div class="item item-divider">
         		<span class="input-label">Participant {{$index+1}}</span>
-    		</label>
+    		</div>
             
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">TPXiD</span>
-                <input type="text" ng-model="item.Tpxid" placeholder="">
-            </label>
+                <input type="text" ng-model="item.tpxid" placeholder="">
+            </div>
 
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">EMPiD</span>
-                <input type="number" ng-model="item.Empid" placeholder="">
-            </label>
+                <input type="number" ng-model="item.empId" placeholder="">
+            </div>
 
-            <label class="item item-input">
+            <div class="item item-input">
                 <span class="input-label">Mobile No</span>
-                <input type="number" ng-model="item.Mobile_No" placeholder="">
-            </label>
+                <input type="number" ng-model="item.mobile" placeholder="">
+            </div>
         </ion-list>
-</div>
- <div class="button button-positive submitbutton" align="center" ng-click="register_submit()">Submit</div>
-<!--/div-->
- </ion-content>
+        </div>
 
+        <div class="button button-positive submitbutton" align="center" ng-click="register_submit()">Submit</div>
+    </div>
+
+ </ion-content>
   
 </ion-view>
