@@ -12,28 +12,100 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left" width="200">
-    <ion-header-bar class="bar bar-custom">
+  <ion-side-menu side="left" width="230" style="background-color:#303030">
+    <!-- <ion-header-bar class="bar bar-custom">
       <h1 class="title" ng-if="username==undefined">TECH APP</h1>
       <h1 class="title" ng-if='username!=null'>{{username}}</h1>
-    </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close href="#/menu/login">
-          Register
+    </ion-header-bar> -->
+    <ion-content >
+  
+    <ion-list>
+
+
+    <ion-item class="heading-item item item-avatar" style="border-color:#9A9A9A;border:thin solid">
+          <img ng-src="img/logo.png">
+          <h2 class="greeting" ng-if="username==undefined" style='color:#B8B8B8;'>Tesco <br>Technology Day</h2>
+          <h2 class="greeting" ng-if="username!=null" style='color:#B8B8B8;'>Welcome <br>{{username}}</h2>
         </ion-item>
-        <ion-item menu-close href="#/menu/hackathon">
-          Hackathon
+
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/home">
+          <i class="icon ion-home" ></i>
+          <h2 class="menu-text" style='color:#B8B8B8'>Home</h2>
+        </ion-item>        
+
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/login">
+          <i class="icon ion-asterisk"></i>
+          <h2 class="menu-text" style='color:#B8B8B8'>Register</h2>
+        </ion-item>        
+
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/hackathon">
+          <i class="icon ion-radio-waves"></i>
+          <h2 class="menu-text" style='color:#B8B8B8'>Hackathon</h2>
         </ion-item>
-        <ion-item menu-close href="#/menu/location">
-          Location
+
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/" onclick="window.open('https://www.google.co.in/maps/place/Tesco+HSC/@12.9739475,77.7283974,17z/data=!3m1!4b1!4m2!3m1!1s0x3bae0df955555555:0xb402b98f027216a2', '_system', 'location=yes'); return false;">
+          <i class="icon ion-document"></i>
+          <h2 class="menu-text" style='color:#B8B8B8'>Directions</h2>
         </ion-item>
-        <ion-item menu-close href="#/menu/stalls">
-          Stalls
+
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/menu/help">
+          <i class="icon ion-gear-a"></i>
+          <h2 class="menu-text" style='color:#B8B8B8'>Help</h2>
         </ion-item>
-        <ion-item menu-close href="#/menu/agenda">
-          Agenda
+
+
+    <!-- <ion-item menu-close href="#/menu/home" style='color:#ffffff;font-size:17px'>
+          <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Home</div>
+          </div>
+
         </ion-item>
+        <ion-item menu-close href="#/menu/login" style='color:#ffffff;font-size:17px'>
+          <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Register</div>
+          </div>
+        </ion-item>
+
+        <ion-item menu-close href="#/menu/hackathon" style='color:#ffffff;font-size:17px'>
+        <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Hackathon</div>
+        </div>
+        </ion-item>
+
+        <ion-item menu-close href="#/" onclick="window.open('https://www.google.co.in/maps/place/Tesco+HSC/@12.9739475,77.7283974,17z/data=!3m1!4b1!4m2!3m1!1s0x3bae0df955555555:0xb402b98f027216a2', '_system', 'location=yes'); return false;" style='color:#ffffff;font-size:17px'>
+        <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Directions</div>
+        </div>
+        </ion-item>
+
+        <ion-item menu-close href="#/menu/help" style='color:#ffffff;font-size:17px'>
+        <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Help</div>
+        </div>
+        </ion-item> -->
+
+       <!--  <a class="item" href="#" onclick="window.open('https://plus.google.com/+NicRaboy', '_system', 'location=yes'); return false;">
+                Open a Google+ Client or Browser
+            </a> -->
+
+        <!-- <ion-item menu-close href="#/menu/stalls" style='color:#ffffff;font-size:17px'>
+        <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Stalls</div>
+        </div>
+        </ion-item>
+
+        <ion-item menu-close href="#/menu/agenda" style='color:#ffffff;font-size:17px'>
+        <div class='row row-center'>
+          <div class='col col-20'><img src='img/ionic.png' style='width:15px;height:15px'></img></div>
+          <div class='col'>Agenda</div>
+        </div>
+        </ion-item> -->
       </ion-list>
     </ion-content>
   </ion-side-menu>

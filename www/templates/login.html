@@ -1,26 +1,39 @@
-<ion-view view-title="Register">
-       <ion-nav-buttons side="left">
-       <button class="button button-icon ion-navicon button-clear" menu-toggle="left" id="lhm_button">
-        </button>
-        <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
-            <i class="icon_home ion-home"></i>
-        </button>
-    </ion-nav-buttons>
+<ion-view hide-nav-bar="true">
+
     <ion-header-bar class='bar bar-custom'>
- 
+        <button class="button button-icon button-clear ion-navicon " menu-toggle="left" id="lhm_button"></button>
+    
+        <h1 class="title">Register</h1>
+        
     </ion-header-bar>
     <ion-content padding="true" scroll="false" class="has-header">
-        <ion-list>
+
+    <div class="input-group">
+                <input type="text" ng-model='user.tpxid' id="first" class="m-input">
+                <label for="first">Tpx Id</label>
+        </div>
+        <div class="input-group">
+                <input type="password" ng-model='user.empid' id="password" class="m-input">
+                <label for="password">Employee id</label>
+        </div>
+        <div class="input-group">
+<!--                 <button class="btn" ng-click='cancel()' style="float:left">Reset</button>
+ -->
+                <button class="btn" ng-click='submit()' style="float:right">Submit</button>
+        </div>
+        <!--     <ion-list>
             <label class="item item-input">
                 <span class="input-label" >TPXiD</span>
-                <input type="text" placeholder="" ng-model='user.tpxid'>
+                <input type="text" placeholder="" ng-model='user.tpxid' name="username" style="background-color:#f2f2f2;padding-left:5px">
             </label>
+            
             <label class="item item-input">
                 <span class="input-label">EMPiD</span>
                 <input type="text" placeholder="" ng-model='user.empid'>
             </label>
         </ion-list>
-    <button class="button button-stable button-block " ng-click='submit()' >Sign up</button>
-    <button class="button button-stable button-block " ng-click='cancel()' >Cancel</button>
+    <button class="button button-full button-block ink" ng-click='submit()' >Sign up</button>
+    <button class="button button-full button-block ink" ng-click='cancel()' >Cancel</button>
+    </form> -->
     </ion-content>
 </ion-view>
