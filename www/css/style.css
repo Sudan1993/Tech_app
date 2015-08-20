@@ -1,5 +1,88 @@
 /* Empty. Add your own CSS if you like */
 
+
+
+.input-group {
+    position: relative;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.input-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.input-group input {
+    border: none;
+    border-bottom: solid 1px #ccc;
+    width: 100%;
+    padding: 10px 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2a9fdd;
+    box-shadow: 0 1px 0 0 #2a9fdd;
+}
+
+.input-group label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color: #aaa;
+    font-weight: 300;
+    transition: transform 0.2s ease, color 0.2s ease;
+        transition: -webkit-transform 0.2s ease, color 0.2s ease;
+
+/*    transition: -ms-transform 0.2s ease, color 0.2s ease;
+    transition: -moz-transform 0.2s ease, color 0.2s ease;
+    transition: -o-transform 0.2s ease, color 0.2s ease;
+*/
+}
+
+.input-group label:hover {
+    cursor: text;
+}
+
+.input-group input:focus + label {
+    color: #2a9fdd;
+}
+
+.input-group input:focus + label,
+.input-group input.active + label {
+    transform: translateY(-30px);
+/*-ms-transform:translateY(-30px);  IE */
+/*-moz-transform:translateY(-30px); /* Firefox */
+  -webkit-transform:translateY(-30px); /* Safari and Chrome */
+/*-o-transform:translateY(-30px); /* Opera */
+*/}
+
+.btn {
+    float: right;
+    color: #2a9fdd;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 2px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, background-color 0.2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #fbfbfb;
+}
+
+.btn:active {
+    background-color: #f2f2f2;
+}
+
+
+
 .submitbutton {
     text-align: center;
     width: 95%;
@@ -9,16 +92,24 @@
  
 }
 
+.icon_home{
+    font-size: 24px;
+}
+
 .bar.bar-custom {
     border-color: #0c63ee;
     background-color: #2a9fdd;
     background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
     color: #fff; 
 }
-#map-canvas {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-
+.video a {
+  position: absolute;
+  display: block;
+  background: url(http://www.slatecube.com/images/play-btn.png);
+  height: 60px;
+  width: 60px;
+  top: 75px;
+  left: 680px;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+}

@@ -1,28 +1,28 @@
 <ion-view view-title="Hackathon">
        <ion-nav-buttons side="left">
-       <button class="button button-icon ion-navicon button-clear" menu-toggle="left" id="lhm_button">
+       <button class="button button-icon button-clear ion-navicon " menu-toggle="left" id="lhm_button">
         </button>
-        <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
+        <!-- <button menu-close class="button button-icon button-clear" ng-click="goToHomeScreen()" id="back">
             <i class="icon_home ion-home"></i>
-        </button>
+        </button> -->
     </ion-nav-buttons>
 <ion-content>
 
   <div class="list card" >
-    <div class="item" ui-sref="menu.hack_register">
+    <div class="item" ng-click="goToHackPage()">
     	Register Team
     </div> 
   </div>
         
-  <div class="list card" ui-sref="menu.notifications">
-    <div class="item">
+<!--   <div class="list card" >
+    <div class="item" ui-sref='menu.notifications'>
       	Notifications
       </div>
-  </div>
+  </div> -->
         
-  <div class="list card" ui-sref="menu.feedback">
-    <div class="item">
-  	   Feedback
+  <div class="list card" >
+    <div class="item" ui-sref='menu.feedback'>
+  	   Instructions
     </div>
   </div>
   

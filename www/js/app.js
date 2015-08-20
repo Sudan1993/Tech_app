@@ -5,14 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.MapCntrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
+angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl','starter.controllers.AgendaCtrl','starter.controllers.hackthonCtrl','starter.controllers.PlaylistsCtrl','starter.services.popup','starter.services.httpService'])
 
 .run(function($ionicPlatform) {
+  
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+  //ionic.Platform.isFullScreen = true;
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -21,7 +24,9 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+
+  $ionicConfigProvider.views.swipeBackEnabled(false);
   $stateProvider
 
 
@@ -42,24 +47,6 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
     }
   })
 
-    .state('menu.notifications', {
-    url: "/notifications",
-    views: {
-      'menuContent':{
-        templateUrl: "templates/notifications.html",
-         controller: 'hackthonCtrl'
-       }
-    }
-  })
- .state('menu.feedback', {
-    url: "/feedback",
-    views: {
-      'menuContent':{
-        templateUrl: "templates/feedback.html",
-         controller: 'hackthonCtrl'
-       }
-    }
-  })
   .state('menu.hackathon', {
     url: "/hackathon",
     cache:false,
@@ -87,21 +74,37 @@ angular.module('starter', ['ionic','ionic-material','starter.controllers.AppCtrl
       }
     }
   })
+  .state('menu.notifications', {
+    url: "/notifications",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notifications.html"
+      }
+    }
+  })
+  .state('menu.help', {
+    url: "/help",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/help.html",
+        controller: 'AppCtrl'
+      }
+    }
+  })
+  .state('menu.instructions', {
+    url: "/instructions",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/instructions.html"
+      }
+    }
+  })
     .state('menu.agenda', {
       url: "/agenda",
       views: {
         'menuContent': {
           templateUrl: "templates/agenda.html",
           controller: 'AgendaCtrl'
-        }
-      }
-    })
-    .state('menu.location', {
-      url: "/location",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/maps.html",
-          controller: 'MapCntrl'
         }
       }
     })
